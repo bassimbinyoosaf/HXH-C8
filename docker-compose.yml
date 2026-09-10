@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: hxh_c8_web
+    restart: unless-stopped
+    ports:
+      - "3002:80"
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=hxh_ctf
+      - DB_USER=hxh_user
+      - DB_PASS=HunterExam288SecPass!
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.6
+    container_name: hxh_c8_db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=RootHunterNenSecret2026!
+      - MYSQL_DATABASE=hxh_ctf
+      - MYSQL_USER=hxh_user
+      - MYSQL_PASSWORD=HunterExam288SecPass!
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

@@ -1,0 +1,39 @@
+# =========================================================
+# HXH-C8 Security Rules (.htaccess for Apache)
+# Denies access to sensitive files, database dumps & solutions
+# =========================================================
+
+# 1. Disable Directory Listing
+Options -Indexes
+
+# 2. Block sensitive file extensions
+<FilesMatch "\.(sql|md|sqlite|db|json|yml|yaml|env|bak|sh|log|ini|lock|dist|swp)$">
+    Order allow,deny
+    Deny from all
+    Require all denied
+</FilesMatch>
+
+# 3. Block specific sensitive system files
+<Files "Dockerfile">
+    Order allow,deny
+    Deny from all
+    Require all denied
+</Files>
+
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+    Require all denied
+</Files>
+
+<Files "db.php">
+    Order allow,deny
+    Deny from all
+    Require all denied
+</Files>
+
+# 4. Block sensitive directories
+RedirectMatch 403 ^/data(/.*)?$
+RedirectMatch 403 ^/solution(/.*)?$
+RedirectMatch 403 ^/includes(/.*)?$
+RedirectMatch 403 ^/\.

@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /api/
+Disallow: /data/
+Allow: /
+Allow: /about.php
+Allow: /candidates.php
+Allow: /guidelines.php
+Allow: /contact.php
