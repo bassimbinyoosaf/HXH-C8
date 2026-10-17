@@ -1,0 +1,22 @@
+WALKTHROUGH C8
+
+visit site 
+
+directory bruteforce to get the url to the chatpage
+		gobuster dir -u http://localhost:8088 -w /usr/share/wordlists/dirb/common.txt -t 50
+
+take bruteforce and check for the reqs 
+		we get /bot
+		and
+		/api/chat.php
+
+we go to /api/chat.php
+		sebd this to repeater and we get a hunter_lisence_verified:false
+		change it to true
+	
+send this
+
+hooray we got the flag
+
+SSP{PRANKED_YOU_CA82F71E}
+
