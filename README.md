@@ -62,3 +62,8 @@ HXH-C8/
 │   └── WRITEUP.md            # Complete CTF writeup & solve script
 └── start.sh                  # Local development launcher
 ```
+
+---
+
+## Walkthrough
+A detailed walkthrough is provided in `WALKTHROUGH C8.txt` for reference.
