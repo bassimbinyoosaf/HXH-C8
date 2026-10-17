@@ -6,7 +6,7 @@ services:
     container_name: hxh_c8_web
     restart: unless-stopped
     ports:
-      - "3002:80"
+      - "30008:80"
     environment:
       - DB_HOST=db
       - DB_PORT=3306
