@@ -24,7 +24,7 @@ Then visit `http://127.0.0.1:8080` in your web browser.
 ```bash
 docker-compose up -d --build
 ```
-Access the challenge at `http://<SERVER_IP>:3002` (or `./start.sh` on port 3002).
+Access the challenge at `http://<SERVER_IP>:30008` (or `./start.sh` on port 30008).
 
 ---
 
@@ -32,7 +32,7 @@ Access the challenge at `http://<SERVER_IP>:3002` (or `./start.sh` on port 3002)
 1. **Multi-Page Portal Exploration**: The web application is a full multi-page Hunter Association portal (`index.php`, `about.php`, `candidates.php`, `guidelines.php`, `contact.php`).
 2. **Directory Fuzzing / Wordlist Discovery**:
    - The chatbot page is hosted at **`chatbot.php`** (also accessible via common wordlist names like `chat.php`, `assistant.php`, `support.php`, `bot.php`, `chat/`, `chatbot/`).
-   - Standard directory brute-forcing tools (e.g., `gobuster dir -u http://TARGET:3002 -w common.txt`, `dirsearch`, `ffuf`) will immediately discover the endpoint.
+   - Standard directory brute-forcing tools (e.g., `gobuster dir -u http://TARGET:30008 -w common.txt`, `dirsearch`, `ffuf`) will immediately discover the endpoint.
 3. **Chatbot Prank Roasts**: When players ask directly for the flag, examiners (Hisoka, Tonpa, Killua, Kurapika) roast them with hex-coded prank flags like `SSP{PRANKED_YOU_...}` or `SSP{WEB_CHATBOT_...}`.
 4. **The Exploit**: Intercept the outgoing request to `/api/chat.php` in **Burp Suite** and tamper with `"hunter_license_verified": false` -> `true`.
 5. **Real Flag**: The AI authenticates the candidate as a Double-Star Hunter and reveals `SSP{PRANKED_YOU_CA82F71E}`.
